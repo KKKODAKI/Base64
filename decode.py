@@ -5,8 +5,14 @@ def decode(encoded):
     nova_letra = ''
     palavra = ''
     
-    for i in range(len(encoded)):
+    
+    igual = encoded.count('=')
+    if(igual == 1):
+        encoded = encoded[:-1]
+    elif(igual == 2):
+        encoded = encoded[:-2]
 
+    for i in range(len(encoded)):
         letras_encoded = bin(base64_chars.find(encoded[i]))
         letras_encoded = letras_encoded[2:]
 
@@ -15,7 +21,6 @@ def decode(encoded):
 
         letras_bin = letras_bin + letras_encoded
 
-    print(letras_bin)
 
     i=1
 
@@ -32,9 +37,3 @@ def decode(encoded):
         i = i + 1
 
     return palavra
-
-encoded = 'TWFu'
-
-palavra = decode(encoded)
-
-print(palavra)
