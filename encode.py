@@ -16,9 +16,13 @@ def encode(palavra):
         if (len(letras)==8):
             letras_bin = letras_bin + letras
         # Caso ele tenha 7 caracteres eu adiciono um 0 na frente
-        else:
+        elif(len(letras)==7):
             letras_bin = letras_bin + '0' + letras
-        # Todos os binários são colocados na variavel letras bin
+        # Caso ele tenha 6 caracteres eu adiciono um 00 na frente
+        elif(len(letras)==6):
+            letras_bin = letras_bin + '00' + letras
+        # Todos os binários são colocados na variavel letras_bin
+        
 
     # Aqui eu crio essa variavel letras_bin_mod, pois eu vou usar lá em baixo o tamanho original da string de letras_bin
     letras_bin_mod = letras_bin
